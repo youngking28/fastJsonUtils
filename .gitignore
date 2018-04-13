@@ -1,0 +1,42 @@
+.mvn
+data
+*target*
+*.jar
+*.war
+*.ear
+*.class
+.idea
+*.iml
+
+# eclipse specific git ignore
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.springBeans
+.factorypath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+node_modules/
+less/
+package.json
+gulpfile.js
+*.DS_Store
+TestController.java
+bower_components
+/.apt_generated/
