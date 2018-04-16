@@ -100,7 +100,7 @@ public class FastJsonUtils {
 
             String innerKey = String.valueOf(entryNode.getKey());
 
-            if (innerKey.equals(key) && fatherKey.equals(originFatherKey)) {
+            if (innerKey.equals(key) && fatherKey.equals(originFatherKey) && !(entryNode.getValue() instanceof JSONObject)) {
                 return String.valueOf(entryNode.getValue());
             } else {
                 if (entryNode.getValue() instanceof JSONObject) {
