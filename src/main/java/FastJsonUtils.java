@@ -52,7 +52,10 @@ public class FastJsonUtils {
             String innerKey = String.valueOf(entryNode.getKey());
 
             if (innerKey.equals(key) && entryNode.getValue() instanceof String) {
-                return String.valueOf(entryNode.getValue());
+                result = String.valueOf(entryNode.getValue());
+                if (StringUtils.isNotBlank(result)) {
+                    return result;
+                }
             } else {
                 if (entryNode.getValue() instanceof JSONObject) {
                     return getString(String.valueOf(payloadJson.getString(innerKey)), key);
@@ -99,7 +102,10 @@ public class FastJsonUtils {
                 return String.valueOf(entryNode.getValue());
             } else {
                 if (entryNode.getValue() instanceof JSONObject) {
-                    return getStringWithFatherKey((JSONObject) entryNode.getValue(), innerKey, key, originFatherKey);
+                    result = getStringWithFatherKey((JSONObject) entryNode.getValue(), innerKey, key, originFatherKey);
+                    if (StringUtils.isNotBlank(result)) {
+                        return result;
+                    }
                 } else if (entryNode.getValue() instanceof JSONArray) {
                     JSONArray jarray = (JSONArray) entryNode.getValue();
                     for (Object jo : jarray) {
@@ -143,7 +149,10 @@ public class FastJsonUtils {
                 return (T) entryNode.getValue();
             } else {
                 if (entryNode.getValue() instanceof JSONObject) {
-                    return getValue(payloadJson.getJSONObject(innerKey), key, clazz);
+                    result = getValue(payloadJson.getJSONObject(innerKey), key, clazz);
+                    if (result != null) {
+                        return result;
+                    }
                 } else if (entryNode.getValue() instanceof JSONArray) {
                     JSONArray jarray = (JSONArray) entryNode.getValue();
                     for (Object jo : jarray) {
