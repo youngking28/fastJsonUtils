@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by Yang.jing on 18/4/15.
@@ -88,8 +89,8 @@ public class TestMain {
                 "    },\n" +
                 "    \"error_msg\": \"\"\n" +
                 "}";
-        BigDecimal result = FastJsonUtils.getValue(payload, "price", BigDecimal.class);
-//        String result = FastJsonUtils.getString(payload, "price");
+        String result = FastJsonUtils.getString(payload, "price");
+//        Date result = FastJsonUtils.getValue(payload, "reality_end_at", Date.class);
         System.out.println(result);
 
     }

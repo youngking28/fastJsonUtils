@@ -51,14 +51,15 @@ public class FastJsonUtils {
 
             String innerKey = String.valueOf(entryNode.getKey());
 
-            if (innerKey.equals(key) && entryNode.getValue() instanceof String) {
-                result = String.valueOf(entryNode.getValue());
-                if (StringUtils.isNotBlank(result)) {
-                    return result;
-                }
+            if (innerKey.equals(key)) {
+                return String.valueOf(entryNode.getValue());
+
             } else {
                 if (entryNode.getValue() instanceof JSONObject) {
-                    return getString(String.valueOf(payloadJson.getString(innerKey)), key);
+                    result = getString(String.valueOf(payloadJson.getString(innerKey)), key);
+                    if (StringUtils.isNotBlank(result)) {
+                        return result;
+                    }
                 } else if (entryNode.getValue() instanceof JSONArray) {
                     JSONArray jarray = (JSONArray) entryNode.getValue();
                     for (Object jo : jarray) {
@@ -71,6 +72,7 @@ public class FastJsonUtils {
                     continue;
                 }
             }
+
         }
         return null;
     }
