@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class TestMain {
     public static void main(String[] args) {
-        String payload = "{\"start\":\"20180131214157805-0800\",\"end\":\"2018-05-08 11:11:11\",\"lpUid\":\"43603487018844016\"}";
+        String payload = "{\"start\":\"20180130214157805-0800\",\"end\":\"2018-05-08 11:11:11\",\"lpUid\":\"43603487018844016\"}";
 
         Models result = JSON.parseObject(payload, Models.class);
         Models resultB = JSON.toJavaObject(JSON.parseObject(payload), Models.class);
